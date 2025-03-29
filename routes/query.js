@@ -46,7 +46,8 @@ router.post('/explain',authenticate,async(req,res)=>{
         }
         res.status(200).json({
             intent:matchedQuery,
-            sqlQuery:QueryRes[matchedQuery].sqlQuery
+            sqlQuery:QueryRes[matchedQuery].sqlQuery,
+            explanation:QueryRes[matchedQuery].explanation,
         })
     } catch (error) {
         res.status(500).json({message:"internal server error",error})
